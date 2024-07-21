@@ -1,0 +1,23 @@
+<mvc:View controllerName="at.clouddna.zsapui5withodatav4.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" displayBlock="true" xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <customHeader>
+            <OverflowToolbar id="detail_toolbar_header">
+                <Title id="detail_title_header" text="Details" />
+                <ToolbarSpacer id="detail_spacer_header" />
+                <Button id="detail_button_edit" text="Bearbeiten" type="Emphasized" press="onEditPressed" visible="{= !${editModel>/editMode}}"/>
+            </OverflowToolbar>
+        </customHeader>
+        <content>
+            <core:Fragment id="detail_fragment_display" type="XML" fragmentName="at.clouddna.zsapui5withodatav4.view.fragment.Display"/>
+        </content>
+        <footer>
+            <OverflowToolbar id="detail_toolbar_footer">
+                <ToolbarSpacer id="detail_spacer_footer" />
+                <Button id="detail_button_save" text="Speichern" press="onSavePressed" type="Accept" visible="{editModel>/editMode}"/>
+                <Button id="detail_button_cancel" text="Abbrechen" press="onCancelPressed" type="Reject" visible="{editModel>/editMode}"/>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

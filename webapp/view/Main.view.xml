@@ -1,0 +1,64 @@
+<mvc:View controllerName="at.clouddna.zsapui5withodatav4.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+
+            <Table id="booksTable" headerText="{i18n>main.table.title}" items="{/ZRAP_CV_BOOKS}" alternateRowColors="true" growing="true" growingThreshold="200" growingScrollToLoad="true">
+                <headerToolbar>
+                    <OverflowToolbar id="main_table_toolbar">
+                        <Title text="{i18n>main.table.title}"/>
+                        <ToolbarSpacer/>
+                        <Button id="main_table_createbutton" text="Hinzufügen" press="onCreatePressed" />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+    <Column id="isbnColumn">
+        <Text id="isbnTitle" text="{i18n>main.column.isbn}" />
+    </Column>
+    <Column id="titleColumn" demandPopin="true" minScreenWidth="Tablet">
+    <Text id="titleTitle" text="{i18n>main.column.title}"/>
+</Column>
+<Column id="authorColumn" demandPopin="true" minScreenWidth="Tablet">
+    <Text id="authorTitle" text="{i18n>main.column.author}"/>
+</Column>
+<Column id="ratingColumn" minScreenWidth="Desktop">
+    <Text id="ratingTitle" text="{i18n>main.column.rating}"/>
+</Column>
+
+</columns>
+<items>
+    <ColumnListItem id="templateItem" highlight="{= %{ReadingFinished} ? 'Success' : 'None' }" type="Navigation" press="onNavToDetail">
+        <cells>
+            <ObjectIdentifier id="isbnCell" title="{ISBN}" />
+<Text id="titleCell" text="{Title}" />
+<Text id="authorCell" text="{Author}" />
+<RatingIndicator id="ratingCell" value="{Rating}" editable="false" />
+
+        </cells>
+    </ColumnListItem>
+</items>
+
+            </Table>
+
+            <!--<Button text="asd" press="refresh"/>
+             <Button text="asd2" press="reset"/>
+            
+            <Input value="{Title}"/>
+            <Table id="table" items="{/ZRAP_CV_BOOKS}">
+                <columns>
+                    <Column>
+                        <Text text="a"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{Title}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>-->
+        </content>
+    </Page>
+</mvc:View>
